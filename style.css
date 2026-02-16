@@ -362,7 +362,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
+    object-position: center bottom;
     border-radius: 4px;
 }
 
@@ -451,4 +451,5 @@ body {
     font-size: 10px;
     box-shadow: 0 0 5px var(--gold);
 }
+
 .coin::after { content: "$"; }
