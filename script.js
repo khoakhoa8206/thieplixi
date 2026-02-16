@@ -150,12 +150,11 @@ window.selectRole = function(role) {
         let specificWish = "";
 
         if (yourPronoun === 'Anh') {
-            specificWish = `Em chúc anh năm mới 2026 Bính Ngọ sức khoẻ dồi dào, tinh thần vững vàng, tiền vào như nước, cuộc sống thăng hoa. Chúc cho mọi dự định ấp ủ đều nảy mầm, mọi cố gắng đều được đền đáp xứng đáng. Mong năm mới mang đến nhiều cơ hội mới, quyết định đúng đắn và những bước tiến vững vàng. Chúc một năm vạn sự như ý, trăm sự như mơ, tỷ sự bất ngờ và hàng giờ hạnh phúc ạaaaaa 🌸🌼🌺`;
+            specificWish = `Em chúc Anh năm mới 2026 Bính Ngọ: mọi dự định ấp ủ đều nảy mầm, mọi cố gắng đều được đền đáp xứng đáng. Mong năm mới mang đến nhiều cơ hội mới, quyết định đúng đắn và những bước tiến vững vàng. Chúc một năm vạn sự như ý, trăm sự như mơ, tỷ sự bất ngờ và hàng giờ hạnh phúc. Sung túc đủ đầy, tiền vào đầy túi, lộc đến đầy tay, vận may gõ cửa ạaaa 🌸🌼🌺`;
         } else if (yourPronoun === 'Chị') {
-            specificWish = `Em chúc chị năm mới 2026 Bính Ngọ sức khoẻ dồi dào, tinh thần vững vàng, tiền vào như nước, cuộc sống thăng hoa. Chúc cho mọi dự định ấp ủ đều nảy mầm, mọi cố gắng đều được đền đáp xứng đáng. Mong năm mới mang đến nhiều cơ hội mới, quyết định đúng đắn và những bước tiến vững vàng. Chúc một năm vạn sự như ý, trăm sự như mơ, tỷ sự bất ngờ và hàng giờ hạnh phúc ạaaaaa 🌸🌼🌺`;
+            specificWish = `Em chúc Chị năm mới 2026 Bính Ngọ: mọi dự định ấp ủ đều nảy mầm, mọi cố gắng đều được đền đáp xứng đáng. Mong năm mới mang đến nhiều cơ hội mới, quyết định đúng đắn và những bước tiến vững vàng. Chúc một năm vạn sự như ý, trăm sự như mơ, tỷ sự bất ngờ và hàng giờ hạnh phúc. Sung túc đủ đầy, tiền vào đầy túi, lộc đến đầy tay, vận may gõ cửa ạaaa 🌸🌼🌺`;
         } else if (yourPronoun === 'Em') {
-            specificWish = `Chị chúc em năm mới 2026 – năm Bính Ngọ – thật nhiều sức khỏe và ngập tràn may mắn. Mong hành trình học tập của em luôn thuận lợi: không quá mệt mỏi, đủ thử thách để trưởng thành, và đủ thành quả để tự hào.
-Chúc em tâm luôn an yên, trí luôn sáng suốt để gặt hái nhiều thành công trên con đường học tập phía trước. Và mong em luôn vui vẻ, bình an, tận hưởng trọn vẹn những cảm xúc đẹp của quãng thời gian cấp Ba này 🫶🏻❤️🌸`;
+            specificWish = `Chị chúc em năm mới 2026 – năm Bính Ngọ – thật nhiều sức khỏe và ngập tràn may mắn. Mong hành trình học tập của em luôn thuận lợi: không quá mệt mỏi, đủ thử thách để trưởng thành, và đủ thành quả để tự hào. Chúc em tâm luôn an yên, trí luôn sáng suốt để gặt hái nhiều thành công trên con đường học tập phía trước. Và mong em luôn vui vẻ, bình an, tận hưởng trọn vẹn những cảm xúc đẹp của quãng thời gian cấp Ba này 🫶🏻❤️🌸`;
         } else {
             // Bạn bè
             specificWish = `Thơ xjnk chúc bạn năm mới 2026 Bính Ngọ sức khoẻ dồi dào, tinh thần vững vàng, tiền vào như nước, cuộc sống thăng hoa. Chúc cho mọi dự định ấp ủ đều nảy mầm, mọi cố gắng đều được đền đáp xứng đáng. Mong năm mới mang đến nhiều cơ hội mới, quyết định đúng đắn và những bước tiến vững vàng. Chúc một năm vạn sự như ý, trăm sự như mơ, tỷ sự bất ngờ và hàng giờ hạnh phúc nhéeee 🌸🌼🌺`;
@@ -167,7 +166,7 @@ Chúc em tâm luôn an yên, trí luôn sáng suốt để gặt hái nhiều th
             <br><br>
             ${specificWish}
             <br><br>
-            Happy New Year! 🎉`;
+            ❤️Hoàng Thơ❤️`;
         }
     }
 
