@@ -1,0 +1,454 @@
+/* --- CÀI ĐẶT CHUNG --- */
+:root {
+    --red-primary: #D32F2F;
+    --red-dark: #8E0000;
+    --gold: #FFD700;
+    --cream: #FFF8E1;
+    --bg-gradient: linear-gradient(135deg, #960018, #FF0000);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--bg-gradient);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--cream);
+}
+
+/* Ẩn hiện màn hình */
+.screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+    z-index: 10;
+}
+
+.screen.active {
+    display: flex;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- MÀN HÌNH 1: FORM CHỌN --- */
+.selection-container {
+    background: rgba(179, 0, 0, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    max-height: 90vh; /* Tránh bị trôi khỏi màn hình nếu điện thoại nhỏ */
+    overflow-y: auto;
+}
+
+.title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.2rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.sub-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: var(--cream);
+    display: block;
+    margin-top: 10px;
+}
+
+.choices-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.choice-btn {
+    background: var(--cream);
+    color: var(--red-dark);
+    border: 2px solid var(--gold);
+    padding: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.choice-btn:hover {
+    background: var(--gold);
+    transform: translateY(-2px);
+}
+
+.choice-btn .label {
+    font-weight: bold;
+    font-size: 1.1rem;
+    flex: 1;
+    text-align: center;
+}
+
+.choice-btn .sub-text {
+    font-size: 0.8rem;
+    color: #555;
+    font-style: italic;
+    display: block;
+}
+
+/* Responsive cho nút chọn trên PC */
+@media (min-width: 600px) {
+    .choices-wrapper {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .choice-btn {
+        flex-direction: column;
+        width: 130px;
+        height: 130px;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+/* Gender Options */
+.gender-options {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed rgba(255,255,255,0.3);
+}
+.gender-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+.choice-btn.small {
+    padding: 10px 20px;
+    width: auto;
+}
+.btn-back {
+    background: transparent;
+    border: none;
+    color: var(--cream);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* --- MÀN HÌNH 2: BAO LÌ XÌ --- */
+.envelope-wrapper {
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+.envelope-wrapper:hover { transform: scale(1.05); }
+
+.envelope {
+    width: 300px;
+    height: 180px;
+    background: var(--red-primary);
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.flap {
+    position: absolute;
+    top: 0; left: 0;
+    width: 0; height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-top: 100px solid #B71C1C;
+    z-index: 5;
+    transform-origin: top;
+    transition: transform 0.6s ease-in-out;
+}
+
+.pocket {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 100%;
+    background: var(--red-primary);
+    border-radius: 10px;
+    z-index: 3;
+    border-top: 2px solid var(--gold);
+}
+
+.front {
+    position: absolute;
+    width: 100%; height: 100%;
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.pattern-circle {
+    width: 80px; height: 80px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--red-dark);
+}
+
+.text-chu {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: var(--gold);
+}
+
+.guide-text {
+    text-align: center;
+    margin-top: 30px;
+    color: var(--cream);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+/* Animation mở bao */
+.envelope.is-open .flap { transform: rotateX(180deg); z-index: 1; }
+.card-preview {
+    position: absolute;
+    top: 10px; left: 10px;
+    width: 280px; height: 160px;
+    background: var(--cream);
+    z-index: 2;
+    transition: transform 1s ease-in-out 0.5s;
+}
+.envelope.is-open .card-preview { transform: translateY(-150px); }
+
+/* --- MÀN HÌNH 3: THIỆP SÁCH 3D (QUAN TRỌNG: ĐÃ SỬA) --- */
+.book-container {
+    perspective: 1500px;
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.book {
+    width: 600px;
+    height: 400px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1.5s ease-in-out;
+    display: flex;
+    background: transparent;
+    transform: rotateY(90deg); /* Ban đầu đóng */
+    opacity: 0;
+}
+
+.book.open {
+    transform: rotateY(0deg);
+    opacity: 1;
+}
+
+.page {
+    width: 50%;
+    height: 100%;
+    background: var(--cream);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.page-left {
+    border-radius: 10px 0 0 10px;
+    background: #fff5e6;
+    border-right: 1px solid #ddd;
+}
+
+.page-right {
+    border-radius: 0 10px 10px 0;
+}
+
+/* --- MEDIA QUERY CHO MOBILE (PHẦN SỬA LỖI CHÍNH) --- */
+@media (max-width: 650px) {
+    .book {
+        /* Chỉnh kích thước cho vừa màn hình dọc */
+        width: 90vw; 
+        max-width: 380px;
+        height: 75vh; /* Dùng chiều cao theo màn hình */
+        max-height: 600px;
+        flex-direction: column; /* Xếp dọc: Ảnh trên, chữ dưới */
+    }
+
+    .page {
+        /* SỬA QUAN TRỌNG: Để width 100% thay vì 50% */
+        width: 100%; 
+        height: 50%; /* Chia đôi chiều cao */
+        padding: 15px; /* Giảm padding */
+    }
+
+    /* Chỉnh bo góc lại cho hợp lý khi xếp dọc */
+    .page-left {
+        border-radius: 10px 10px 0 0; /* Bo 2 góc trên */
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .page-right {
+        border-radius: 0 0 10px 10px; /* Bo 2 góc dưới */
+    }
+
+    /* Ảnh nhỏ lại một chút để không bị chiếm hết chỗ */
+    .photo-frame {
+        width: 70% !important; 
+        height: 80% !important;
+        border: 2px solid var(--gold);
+    }
+    
+    /* Chữ nhỏ lại */
+    #greeting-header {
+        font-size: 1.2rem !important;
+        margin-bottom: 5px;
+    }
+    .wish-text {
+        font-size: 0.85rem !important; /* Chữ nhỏ để vừa khung */
+        line-height: 1.4 !important;
+        text-align: justify; /* Căn đều 2 bên cho đẹp */
+    }
+    
+    .content-box {
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+        border: 1px dashed var(--red-primary); /* Viền mỏng hơn */
+    }
+}
+
+/* --- NỘI DUNG THIỆP --- */
+.photo-frame {
+    width: 90%;
+    height: 80%;
+    border: 4px solid var(--gold);
+    background: #fff;
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+.user-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 4px;
+}
+
+.content-box {
+    text-align: center;
+    border: 2px dashed var(--red-primary);
+    padding: 20px;
+    height: 90%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow-y: auto; /* Nếu chữ dài quá thì cho cuộn */
+}
+
+#greeting-header {
+    font-family: 'Dancing Script', cursive;
+    color: var(--red-primary);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.wish-text {
+    font-family: 'Pangolin', cursive;
+    color: #333;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Nút bấm & Tiện ích */
+.btn-secondary {
+    margin-top: 15px;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid var(--cream);
+    color: var(--cream);
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.music-btn {
+    position: fixed;
+    top: 20px; right: 20px;
+    z-index: 100;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    width: 40px; height: 40px;
+    cursor: pointer;
+    color: white;
+}
+
+.hidden { display: none !important; }
+
+/* Hiệu ứng rơi */
+#coin-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.falling-item {
+    position: absolute;
+    top: -50px;
+    user-select: none;
+    pointer-events: none;
+    z-index: 1;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
+}
+
+.coin {
+    position: absolute;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 2px solid #DAA520;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #DAA520;
+    font-weight: bold;
+    font-size: 10px;
+    box-shadow: 0 0 5px var(--gold);
+}
+.coin::after { content: "$"; }

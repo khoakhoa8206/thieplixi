@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiệp Chúc Tết 2026</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;700&family=Pangolin&display=swap" rel="stylesheet">
+</head>
+<body>
+
+   <audio id="bg-music" loop>
+    <source src="nhac-tet.mp3" type="audio/mp3">
+</audio>
+    <audio id="open-sound">
+        <source src="https://actions.google.com/sounds/v1/cartoon/pop_cork.ogg" type="audio/ogg">
+    </audio>
+
+    <button id="music-toggle" class="music-btn hidden">🔇</button>
+
+    <div id="coin-container"></div>
+
+  <section id="screen-selection" class="screen active">
+    <div class="selection-container">
+        <h1 class="title">Chúc mừng năm mới! <br> <span class="sub-title">Bạn gọi Thơ là gì?</span></h1>
+        
+        <div class="choices-wrapper">
+            <button class="choice-btn" onclick="selectRole('younger')">
+              
+                <span class="label">Chị</span>
+                <span class="sub-text">(Thơ là chị)</span>
+            </button>
+
+            <button class="choice-btn" onclick="selectRole('friend')">
+              
+                <span class="label">Bạn</span>
+                <span class="sub-text">(Bạn bè)</span>
+            </button>
+
+            <button class="choice-btn" id="btn-older" onclick="showGenderOptions()">
+              
+                <span class="label">Em</span>
+                <span class="sub-text">(Thơ là em)</span>
+            </button>
+        </div>
+
+        <div id="gender-selection" class="gender-options hidden">
+            <p class="question">Vậy bạn là?</p>
+            <div class="gender-buttons">
+                <button class="choice-btn small" onclick="selectRole('older-male')">Anh</button>
+                <button class="choice-btn small" onclick="selectRole('older-female')">Chị</button>
+            </div>
+            <button class="btn-back" onclick="hideGenderOptions()">↩ Quay lại</button>
+        </div>
+    </div>
+</section>
+
+    <section id="screen-envelope" class="screen">
+        <div class="envelope-wrapper" id="envelope-trigger">
+            <div class="envelope">
+                <div class="front">
+                    <div class="pattern-circle">
+                        <span class="text-chu">Tết</span>
+                    </div>
+                </div>
+                <div class="card-preview"></div> <div class="flap"></div>
+                <div class="pocket"></div>
+            </div>
+            <p class="guide-text">Bấm để mở lì xì ngay!</p>
+        </div>
+    </section>
+
+    <section id="screen-card" class="screen">
+        <div class="book-container">
+            <div class="book" id="book">
+               <div class="page page-left">
+    <div class="photo-frame">
+    <img id="hero-img" src="anh-1.jpg" alt="Ảnh của Thơ" class="user-photo">
+</div>
+</div>
+
+                <div class="page page-right">
+                    <div class="content-box">
+                        <div class="corner-tl"></div>
+                        <div class="corner-br"></div>
+                        <h2 id="greeting-header">Gửi...</h2>
+                        <p id="greeting-body" class="wish-text">
+                            </p>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <button id="btn-reset" class="btn-secondary">Làm thiệp mới</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
